@@ -5,8 +5,8 @@
 
 The project is based on a small web service which uses the following technologies:
 
-- Java 17
-- Spring Boot 3.3.5
+- Java 21
+- Spring Boot 3.5.16
 - Spring MVC
 - Database H2 (In-Memory)
 - Maven
@@ -23,8 +23,12 @@ The project is based on a small web service which uses the following technologie
 
 ## Prerequisites
 
-- Java 8 or higher (Java 17 tested and working)
+- JDK 21 or higher (Eclipse Temurin 21 is used in CI)
 - Maven (or use the included Maven Wrapper)
+
+Set `JAVA_HOME` to your JDK 21 installation and ensure its `bin` directory is on
+`PATH`. The Maven Wrapper uses this JDK; `./mvnw -version` should report Java 21.
+The build rejects JDK versions older than 21 during validation.
 
 ## Build the application
 
@@ -83,18 +87,18 @@ The application starts a web server on port 8080 and serves SwaggerUI where you 
 To run all tests:
 
 ```bash
-./mvnw test
+./mvnw verify
 ```
 
 Or with Maven:
 
 ```bash
-mvn test
+mvn verify
 ```
 
 ## Notes
 
-- The application uses Java 17 and Spring Boot 3.3.5
+- The application uses Java 21 and Spring Boot 3.5.16
 - Tests are written using JUnit 5
 - Default credentials for basic authentication: `user` / `password`
 - The compiler is configured with `-parameters` flag for Spring MVC parameter name resolution
